@@ -8,7 +8,7 @@ Solutions and experimenting ground for the Cryptopals crypto challenges — impl
 
 ```
 ├── challenges/ # challenge-specific code and helper packages
-├── ch7.txt # notes or challenge hints
+├── ch7.txt # challenge specific files
 ├── ch8.txt
 ├── ch10.txt
 ├── go.mod
