@@ -6,14 +6,14 @@ Solutions and experimenting ground for the Cryptopals crypto challenges — impl
 
 ## Repository structure
 
-.
+```
 ├── challenges/ # challenge-specific code and helper packages
 ├── ch7.txt # notes or challenge hints
 ├── ch8.txt
 ├── ch10.txt
 ├── go.mod
 ├── main.go # runner / examples
-
+```
 
 > The repo is organized by challenge. Each challenge should live under `challenges/` with a short README or comments explaining the approach.
 
