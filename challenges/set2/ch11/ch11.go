@@ -34,12 +34,12 @@ func secureRandomInt(max int) (int, error) {
 }
 
 // generateRandomAESKey returns a cryptographically secure AES key of length 16.
-func generateRandomAESKey() ([]byte, error) {
+func GenerateRandomAESKey() ([]byte, error) {
 	return secureRandomBytes(16)
 }
 
 // writeAESEncryption: ECB encrypt (expects plaintext bytes; padding applied inside).
-func writeAESEncryption(plaintext, key []byte) ([]byte, error) {
+func WriteAESEncryption(plaintext, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
@@ -101,7 +101,7 @@ func encryptAESCBC(plaintext []byte, key, iv []byte) ([]byte, error) {
 // Returns: ciphertext, key, iv (iv==nil for ECB), modeIsECB (true if ECB), error
 func EncryptionOracle(plaintext []byte) (ciphertext []byte, key []byte, iv []byte, modeIsECB bool, err error) {
 	// 1) generate random key
-	key, err = generateRandomAESKey()
+	key, err = GenerateRandomAESKey()
 	if err != nil {
 		return nil, nil, nil, false, err
 	}
@@ -138,7 +138,7 @@ func EncryptionOracle(plaintext []byte) (ciphertext []byte, key []byte, iv []byt
 	}
 	if choice == 0 {
 		// ECB
-		ct, err := writeAESEncryption(input, key)
+		ct, err := WriteAESEncryption(input, key)
 		if err != nil {
 			return nil, nil, nil, false, err
 		}
